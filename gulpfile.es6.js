@@ -163,7 +163,9 @@ gulp.task('sasslint', () => {
     .pipe($.sassLint.failOnError());
 });
 
-gulp.task('sass', ['sasslint'], () => {
+// for book-cover-editor
+// gulp.task('sass', ['sasslint'], () => {
+gulp.task('sass', () => {
   return gulp
     .src([
       `${srcCSSDir}**/*.scss`,
