@@ -1,9 +1,147 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Book Cover Editer</title>
+    <meta charset="utf-8">
+    <title>Book Cover Editor</title>
+    <link href="stylesheets/bundle.min.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" sizes="16x16 32x32 48x48" type="image/vnd.microsoft.icon" />
   </head>
   <body>
-
+    <div class="container row">
+      <header id="header-min" role="banner">
+        <h1 id="top">
+          <a class="text-hidden" href="/">Book Cover Editor</a>
+        </h1>
+        <nav id="bar-min">
+          <div id="box-nav-min">
+            <div id="btn-to-edit-books"><button class="btn-generate-cover-img" name="button" type="submit">出版情報の登録へ進む</button></div>
+          </div>
+        </nav>
+      </header>
+      <main class="row gutters" id="main" role="main">
+        <div id="box-cover">
+          <div id="edit-cover-area">
+            <form accept-charset="UTF-8" action="/books/5/cover" id="edit-book-cover" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="ZdZ/xx5TMWOyp3VIFo0tajFTpwxOZZ727xQ8ikhIre8=" /></div>
+                <div data-intro="ここでは表紙の情報を入力することができます。&lt;br&gt;表紙タイトルと著者名は入力必須です。" data-position="right" data-step="1" id="box-edit-info">
+                  <div class="box-cover-form">
+                    <label class="box-cover-label">
+                      <div class="box-label-title bg-red">
+                        <span class="label-cover-necessary">必須</span>
+                        タイトル
+                      </div>
+                      <div class="box-input-cover-info">
+                        <span>表紙のタイトルを入力してください</span>
+                        <textarea class="box-cover-textarea" id="inputTitleArea" name="book[title]"></textarea>
+                      </div>
+                      <input id="inputTitleButton" name="inputTitleButton" type="button" value="この表紙タイトルを追加">
+                    </label>
+                  </div>
+                  <div class="box-cover-form">
+                    <div class="box-label-title bg-red">
+                      <span class="label-cover-necessary">必須</span>
+                      著者名
+                    </div>
+                    <div class="box-input-cover-info-half">
+                      <label class="box-cover-label">
+                        <span>苗字を入力してください</span>
+                        <input class="box-cover-name" id="inputLastNameArea" name="book[last_name]" placeholder="苗字" type="text" />
+                      </label>
+                    </div>
+                    <div class="box-input-cover-info-half">
+                      <label class="box-cover-label">
+                        <span>名前を入力してください</span>
+                        <input class="box-cover-name" id="inputFirstNameArea" name="book[first_name]" placeholder="名前" type="text" />
+                      </label>
+                    </div>
+                    <input id="inputAuthorButton" name="inputAuthorButton" type="button" value="この著者名を追加">
+                  </div>
+                  <div class="box-cover-form">
+                    <label class="box-cover-label">
+                      <div class="box-label-title bg-gray">
+                        <span class="label-cover-optional">任意</span>
+                        帯を入れる
+                      </div>
+                    </label>
+                    <p>この表紙に帯を入れますか？</p>
+                    <label class="box-switch">
+                      <input class="btn-switch" id="inputBandButton" name="book[band]" type="checkbox" value="true" />
+                      <span class="btn-switch-label">
+                        <span class="btn-switch-on">はい</span>
+                        <span class="btn-switch-separator"></span>
+                        <span class="btn-switch-off">いいえ</span>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="box-cover-form">
+                    <label class="box-cover-label">
+                      <div class="box-label-title bg-gray">
+                        <span class="label-cover-optional">任意</span>
+                        帯の文言
+                      </div>
+                      <div class="box-input-cover-info">
+                        <span>帯に載せる文章を入れることができます</span>
+                        <textarea class="box-cover-textarea" id="inputBandTextArea" name="book[obi]"></textarea>
+                      </div>
+                      <input id="inputBandTextButton" name="inputBandTextButton" type="button" value="この帯文言を追加">
+                    </label>
+                  </div>
+                  <div class="box-cover-form">
+                    <div class="box-label-title bg-gray">
+                      <span class="label-cover-optional">任意</span>
+                      <span class="label-cover-form">ロゴの有無</span>
+                    </div>
+                    <p>この表紙に本サービスのロゴを入れますか？</p>
+                    <label class="box-switch">
+                      <input class="btn-switch" id="inputLogoButton" name="book[logo]" type="checkbox" value="true" />
+                      <span class="btn-switch-label">
+                        <span class="btn-switch-on">はい</span>
+                        <span class="btn-switch-separator"></span>
+                        <span class="btn-switch-off">いいえ</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div data-intro="他の表紙にしたいときはこちらから選びなおしてください。" data-position="bottom" data-step="2" id="box-cover-list">
+                  <h3>表紙一覧</h3>
+                  <div class="box-cover-slider slick-initialized slick-slider" id="box-cover-items">
+                    <div class="slick-list draggable" tabindex="0">
+                      <div class="slick-track" style="opacity: 1; width: 156px; transform: translate3d(0px, 0px, 0px);">
+                        <div class="slick-slide" style="width: 78px;">
+                          <input checked="checked" id="book_cover_id_1" name="book[cover_id]" type="radio" value="1" />
+                          <label for="book_cover_id_1">
+                            <img alt="Antique 2b sample" class="cover-thumb" data-cover-json-url="http://localhost:3000/covers/1/design" src="images/covers/001/thumb/antique_2B_sample.png" width="100" />
+                          </label>
+                        </div>
+                        <div>
+                          <input id="book_cover_id_2" name="book[cover_id]" type="radio" value="2" />
+                          <label for="book_cover_id_2">
+                            <img alt="Simple 5a sample" class="cover-thumb" data-cover-json-url="http://localhost:3000/covers/2/design" src="images/covers/002/thumb/simple_5A_sample.png" width="100" />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="box-edit-cover">
+                  <div data-cover-json-url="http://localhost:3000/covers/1/design" id="box-cover-img">
+                    <canvas height="873" id="canvas" width="655"></canvas>
+                  </div>
+                </div>
+                <div id="box-cover-submit">
+                  <input class="btn-cover-back btn-generate-cover-img" name="back" type="submit" value="本文編集に戻る" />
+                  <input class="btn-cover-submit btn-generate-cover-img" id="btn-generate-img" name="draft" type="button" value="下書き保存">
+                </div>
+            </form>
+          </div>
+          <div id="test-area"></div>
+        </div>
+      </main>
+      <footer class="row gutters" id="footer" role="contentinfo">
+        <div class="span_12" id="box-copyright-sp">
+          <small>Copyright &copy;</small>
+        </div>
+      </footer>
+    </div>
+    <div class="shade"></div>
   </body>
 </html>
