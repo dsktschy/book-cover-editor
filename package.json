@@ -49,6 +49,7 @@
     ]
   },
   "browserify-shim": {
-    "jquery": "global:$"
+    "jquery": "global:$",
+    "fabric": "global:fabric"
   }
 }
