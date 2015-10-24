@@ -5,6 +5,9 @@
     <title>Book Cover Editor</title>
     <link href="stylesheets/bundle.min.css" rel="stylesheet" />
     <link href="favicon.ico" rel="icon" sizes="16x16 32x32 48x48" type="image/vnd.microsoft.icon" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/fabric.js"></script>
+    <script type="text/javascript" src="javascripts/bundle.min.js"></script>
   </head>
   <body>
     <div class="container row">
@@ -124,7 +127,7 @@
                 </div>
                 <div id="box-edit-cover">
                   <div data-cover-json-url="http://localhost:3000/covers/1/design" id="box-cover-img">
-                    <canvas height="873" id="canvas" width="655"></canvas>
+                    <canvas height="873" id="cover" width="655"></canvas>
                   </div>
                 </div>
                 <div id="box-cover-submit">
