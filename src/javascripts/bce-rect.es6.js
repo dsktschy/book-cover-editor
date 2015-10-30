@@ -1,0 +1,45 @@
+import fabric from 'fabric';
+
+var BCERect;
+
+/**
+ *
+ */
+BCERect = class extends fabric.Rect {
+  /**
+   * constructor
+   */
+  constructor(ratio, {outputSize: {width, height}}) {
+    super();
+    this.ratio = ratio;
+    this.outputWidth = width;
+    this.outputHeight = height;
+    this.update({selectable: false});
+  }
+  /**
+   * set + setCoords + renderAll
+   */
+  update(map) {
+    this
+      .set(map)
+      .setCoords();
+    if (this.canvas) {
+      this.canvas.renderAll();
+    }
+  }
+  /**
+   * レイヤーにテンプレート情報をセットする
+   * @param {Object} t 表紙テンプレートオブジェクトの該当レイヤー属性
+   */
+  setTemplate(t) {
+    this.update({
+      left: 0,
+      top: t.height * this.ratio,
+      width: this.outputWidth * this.ratio,
+      height: this.outputHeight * this.ratio - t.height * this.ratio,
+      fill: t.color,
+    });
+  }
+};
+
+export default BCERect;

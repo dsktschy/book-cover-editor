@@ -1,13 +1,11 @@
 import $ from 'jquery';
-import fabric from 'fabric';
+import BCECover from './bce-cover';
 
 const
   /** このモジュールに結びつく要素のセレクター */
-  SELF_SELECTOR = '#box-edit-cover',
-  /** canvas要素のID */
-  CANVAS_ID = 'cover';
+  SELF_SELECTOR = '#box-edit-cover';
 
-var init, $cache, set$cache, cover;
+var init, $cache, set$cache, cover, onApplyData, bceModel;
 
 /**
  * jqueryオブジェクトを保持
@@ -16,19 +14,29 @@ set$cache = () => {
   $cache = {
     self: $(SELF_SELECTOR),
     window: $(window),
-    boxCoverImg: $('#box-cover-img'),
+    boxCoverImg: $(SELF_SELECTOR).find('#box-cover-img'),
+    canvas: $(SELF_SELECTOR).find('canvas'),
   };
+};
+
+/**
+ * データ取得完了時のコールバック
+ */
+onApplyData = (event) => {
+  cover.setTemplate(bceModel.getTemplate());
 };
 
 /**
  * module起動
  * @exports
  */
-init = () => {
+init = (modelMod) => {
   var apiURL;
+  bceModel = modelMod;
   set$cache();
-  cover = new fabric.Canvas(CANVAS_ID);
+  cover = new BCECover($cache.canvas);
   apiURL = $cache.boxCoverImg.data('cover-json-url');
+  $cache.window.on('apply-data', onApplyData);
   $cache.window.trigger('select-template', apiURL);
 };
 

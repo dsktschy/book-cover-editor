@@ -18669,10 +18669,6 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _renderViaNative: function(ctx) {
-      // 縦書きの場合はデフォルトに固定
-      if(this.writingMode === 'tb'){
-        this.textAlign = 'left';
-      }
       // スタイル適用
       this._setTextStyles(ctx);
       if( !this.lineWidth ){
