@@ -92,6 +92,12 @@ BCECover = class extends fabric.Canvas {
   setToLayer(name, value) {
     this.item(LAYER_INDEX_MAP[name]).setValue(value);
   }
+  /**
+   * 帯を表示しているかどうか
+   */
+  hasBand() {
+    return this.item(LAYER_INDEX_MAP.band).get('visible');
+  }
 };
 
 export default BCECover;

@@ -70,7 +70,9 @@ BCEText = class extends fabric.Text {
    * 入力された情報をレイヤーに反映する
    */
   setValue(value) {
-    this.update({text: value});
+    var key;
+    key = typeof value === 'boolean' ? 'visible' : 'text';
+    this.update({[key]: value});
   }
 };
 

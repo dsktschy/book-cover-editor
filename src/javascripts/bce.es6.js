@@ -6,6 +6,7 @@ import bceTemplateSelector from './bce-template-selector';
 import bceTitleEditor from './bce-title-editor';
 import bceAuthorEditor from './bce-author-editor';
 import bceBandEditor from './bce-band-editor';
+import bceBandTextEditor from './bce-band-text-editor';
 import bceLogoEditor from './bce-logo-editor';
 
 var init, bceData, set$cache, $cache, onSelectTemplate;
@@ -42,6 +43,7 @@ init = () => {
   bceTitleEditor.init();
   bceAuthorEditor.init();
   bceBandEditor.init();
+  bceBandTextEditor.init();
   bceLogoEditor.init();
 };
 

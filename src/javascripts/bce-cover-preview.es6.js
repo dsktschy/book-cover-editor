@@ -27,10 +27,13 @@ onApplyData = (event) => {
 };
 
 /**
- * トグルが切り替えられた時のコールバック
+ * ユーザー入力へのコールバック
  */
 onInputValue = (event, value) => {
   cover.setToLayer(event.namespace, value);
+  if (event.namespace === 'band' || event.namespace === 'bandText') {
+    cover.setToLayer('bandText', cover.hasBand());
+  }
 };
 
 /**
@@ -43,9 +46,10 @@ init = (modelMod) => {
   set$cache();
   cover = new BCECover($cache.canvas);
   apiURL = $cache.boxCoverImg.data('cover-json-url');
-  $cache.window.on('apply-data', onApplyData);
-  $cache.window.on('input-value.title.author.band.logo', onInputValue);
-  $cache.window.trigger('select-template', apiURL);
+  $cache.window
+    .on('apply-data', onApplyData)
+    .on('input-value.title.author.band.bandText.logo', onInputValue)
+    .trigger('select-template', apiURL);
 };
 
 export default {
