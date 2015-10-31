@@ -57,6 +57,14 @@ BCEImage = class extends fabric.Image {
     });
     image.src = t.src;
   }
+  /**
+   * 入力された情報をレイヤーに反映する
+   */
+  setValue(value) {
+    if (typeof value === 'boolean') {
+      this.update({visible: value});
+    }
+  }
 };
 
 export default BCEImage;

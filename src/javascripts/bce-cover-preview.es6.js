@@ -44,7 +44,7 @@ init = (modelMod) => {
   cover = new BCECover($cache.canvas);
   apiURL = $cache.boxCoverImg.data('cover-json-url');
   $cache.window.on('apply-data', onApplyData);
-  $cache.window.on('change-input.band', onChangeInput);
+  $cache.window.on('change-input.band.logo', onChangeInput);
   $cache.window.trigger('select-template', apiURL);
 };
 

@@ -4,6 +4,7 @@ import bceModel from './bce-model';
 import bceCoverPreview from './bce-cover-preview';
 import bceTemplateSelector from './bce-template-selector';
 import bceBandEditor from './bce-band-editor';
+import bceLogoEditor from './bce-logo-editor';
 
 var init, bceData, set$cache, $cache, onSelectTemplate;
 
@@ -37,6 +38,7 @@ init = () => {
   bceCoverPreview.init(bceModel);
   bceTemplateSelector.init();
   bceBandEditor.init();
+  bceLogoEditor.init();
 };
 
 export default {
