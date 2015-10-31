@@ -3,6 +3,7 @@ import _bceDataFake from './bce-data-fake';
 import bceModel from './bce-model';
 import bceCoverPreview from './bce-cover-preview';
 import bceTemplateSelector from './bce-template-selector';
+import bceBandEditor from './bce-band-editor';
 
 var init, bceData, set$cache, $cache, onSelectTemplate;
 
@@ -35,6 +36,7 @@ init = () => {
   bceModel.init(bceData);
   bceCoverPreview.init(bceModel);
   bceTemplateSelector.init();
+  bceBandEditor.init();
 };
 
 export default {

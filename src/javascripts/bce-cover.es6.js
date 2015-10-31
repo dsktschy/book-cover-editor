@@ -47,7 +47,16 @@ const
       className: 'BCEImage',
       optionMap: {isCentering: true},
     },
-  ];
+  ],
+  LAYER_INDEX_MAP = {
+    userImage: 0,
+    frameImage: 1,
+    title: 2,
+    author: 3,
+    band: 4,
+    bandText: 5,
+    logo: 6,
+  };
 
 var BCECover;
 
@@ -76,6 +85,12 @@ BCECover = class extends fabric.Canvas {
     for (let i = 0; i < LAYER_PARAM_MAPS.length; i++) {
       this.item(i).setTemplate(template[LAYER_PARAM_MAPS[i].name]);
     }
+  }
+  /**
+   * 指定レイヤーに値を反映する
+   */
+  setToLayer(name, value) {
+    this.item(LAYER_INDEX_MAP[name]).setValue(value);
   }
 };
 

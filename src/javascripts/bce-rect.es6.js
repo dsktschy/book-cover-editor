@@ -40,6 +40,12 @@ BCERect = class extends fabric.Rect {
       fill: t.color,
     });
   }
+  /**
+   * 入力された情報をレイヤーに反映する
+   */
+  setValue(value) {
+    this.update({visible: value});
+  }
 };
 
 export default BCERect;
