@@ -5,7 +5,7 @@ const
   /** このモジュールに結びつく要素のセレクター */
   SELF_SELECTOR = '#box-edit-cover';
 
-var init, $cache, set$cache, cover, onApplyData, bceModel, onChangeInput;
+var init, $cache, set$cache, cover, onApplyData, bceModel, onInputValue;
 
 /**
  * jqueryオブジェクトを保持
@@ -29,7 +29,7 @@ onApplyData = (event) => {
 /**
  * トグルが切り替えられた時のコールバック
  */
-onChangeInput = (event, value) => {
+onInputValue = (event, value) => {
   cover.setToLayer(event.namespace, value);
 };
 
@@ -44,7 +44,7 @@ init = (modelMod) => {
   cover = new BCECover($cache.canvas);
   apiURL = $cache.boxCoverImg.data('cover-json-url');
   $cache.window.on('apply-data', onApplyData);
-  $cache.window.on('change-input.band.logo', onChangeInput);
+  $cache.window.on('input-value.title.band.logo', onInputValue);
   $cache.window.trigger('select-template', apiURL);
 };
 

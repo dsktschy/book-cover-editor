@@ -66,6 +66,12 @@ BCEText = class extends fabric.Text {
       textAlign,
     });
   }
+  /**
+   * 入力された情報をレイヤーに反映する
+   */
+  setValue(value) {
+    this.update({text: value});
+  }
 };
 
 export default BCEText;

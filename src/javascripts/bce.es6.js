@@ -3,6 +3,7 @@ import _bceDataFake from './bce-data-fake';
 import bceModel from './bce-model';
 import bceCoverPreview from './bce-cover-preview';
 import bceTemplateSelector from './bce-template-selector';
+import bceTitleEditor from './bce-title-editor';
 import bceBandEditor from './bce-band-editor';
 import bceLogoEditor from './bce-logo-editor';
 
@@ -37,6 +38,7 @@ init = () => {
   bceModel.init(bceData);
   bceCoverPreview.init(bceModel);
   bceTemplateSelector.init();
+  bceTitleEditor.init();
   bceBandEditor.init();
   bceLogoEditor.init();
 };

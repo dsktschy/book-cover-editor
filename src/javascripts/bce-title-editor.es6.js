@@ -2,9 +2,9 @@ import $ from 'jquery';
 
 const
   /** このモジュールに結びつく要素のセレクター */
-  SELF_SELECTOR = '#logo-editor';
+  SELF_SELECTOR = '#title-editor';
 
-var init, $cache, set$cache, onChangeInput;
+var init, $cache, set$cache, onClickInput;
 
 /**
  * jqueryオブジェクトを保持
@@ -14,14 +14,15 @@ set$cache = () => {
     self: $(SELF_SELECTOR),
     window: $(window),
     input: $(SELF_SELECTOR).find('input'),
+    textarea: $(SELF_SELECTOR).find('textarea'),
   };
 };
 
 /**
- * トグル切り替え時のハンドラー
+ * 追加ボタン押下時のハンドラー
  */
-onChangeInput = () => {
-  $cache.window.trigger('input-value.logo', $cache.input.prop('checked'));
+onClickInput = () => {
+  $cache.window.trigger('input-value.title', $cache.textarea.val());
 };
 
 /**
@@ -30,8 +31,8 @@ onChangeInput = () => {
  */
 init = () => {
   set$cache();
-  $cache.input.on('change', onChangeInput);
-  $cache.window.on('apply-data', onChangeInput);
+  $cache.input.on('click', onClickInput);
+  $cache.window.on('apply-data', onClickInput);
 };
 
 export default {

@@ -21,7 +21,7 @@ set$cache = () => {
  * トグル切り替え時のハンドラー
  */
 onChangeInput = () => {
-  $cache.window.trigger('change-input.band', $cache.input.prop('checked'));
+  $cache.window.trigger('input-value.band', $cache.input.prop('checked'));
 };
 
 /**
