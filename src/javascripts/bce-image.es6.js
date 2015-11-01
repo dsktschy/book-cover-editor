@@ -1,6 +1,8 @@
 import fabric from 'fabric';
 
-var BCEImage;
+var BCEImage, fileReader;
+
+fileReader = new FileReader();
 
 /**
  *
@@ -13,6 +15,7 @@ BCEImage = class extends fabric.Image {
     var propMap;
     super();
     this.ratio = ratio;
+    this.isDefault = true;
     propMap = transformable ? {
       hasBorders: false,
       hasRotatingPoint: false,
@@ -46,24 +49,39 @@ BCEImage = class extends fabric.Image {
    * @param {Object} t 表紙テンプレートオブジェクトの該当レイヤー属性
    */
   setTemplate(t) {
-    var image;
-    image = new Image();
-    image.onload = this.update.bind(this, {
-      image: image,
+    var propMap;
+    propMap = {
       left: t.positionX * this.ratio,
       top: t.positionY * this.ratio,
       width: t.width * this.ratio,
       height: t.height * this.ratio,
-    });
-    image.src = t.src;
+    };
+    if (!this.isDefault) {
+      this.update(propMap);
+      return;
+    }
+    propMap.image = new Image();
+    propMap.image.onload = this.update.bind(this, propMap);
+    propMap.image.src = t.src;
   }
   /**
    * 入力された情報をレイヤーに反映する
    */
   setValue(value) {
+    var image;
     if (typeof value === 'boolean') {
       this.update({visible: value});
+      return;
     }
+    fileReader.onload = (event) => {
+      image = new Image();
+      image.onload = () => {
+        this.update({image: image});
+        this.isDefault = false;
+      };
+      image.src = event.target.result;
+    };
+    fileReader.readAsDataURL(value);
   }
 };
 

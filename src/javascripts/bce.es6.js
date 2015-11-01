@@ -5,6 +5,7 @@ import bceCoverPreview from './bce-cover-preview';
 import bceTemplateSelector from './bce-template-selector';
 import bceTitleEditor from './bce-title-editor';
 import bceAuthorEditor from './bce-author-editor';
+import bceUserImageEditor from './bce-user-image-editor';
 import bceBandEditor from './bce-band-editor';
 import bceBandTextEditor from './bce-band-text-editor';
 import bceLogoEditor from './bce-logo-editor';
@@ -42,6 +43,7 @@ init = () => {
   bceTemplateSelector.init();
   bceTitleEditor.init();
   bceAuthorEditor.init();
+  bceUserImageEditor.init();
   bceBandEditor.init();
   bceBandTextEditor.init();
   bceLogoEditor.init();

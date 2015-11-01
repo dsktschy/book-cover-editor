@@ -48,7 +48,7 @@ init = (modelMod) => {
   apiURL = $cache.boxCoverImg.data('cover-json-url');
   $cache.window
     .on('apply-data', onApplyData)
-    .on('input-value.title.author.band.bandText.logo', onInputValue)
+    .on('input-value.title.author.userImage.band.bandText.logo', onInputValue)
     .trigger('select-template', apiURL);
 };
 
