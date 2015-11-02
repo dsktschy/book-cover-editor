@@ -3,7 +3,8 @@ import fabric from 'fabric';
 var BCERect;
 
 /**
- *
+ * BCE用に拡張したfabric.Rectクラス
+ * @exports
  */
 BCERect = class extends fabric.Rect {
   /**

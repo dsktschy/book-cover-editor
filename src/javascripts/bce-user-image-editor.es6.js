@@ -41,6 +41,7 @@ onChangeInputHidden = () => {
 
 /**
  * module起動
+ *   on('change')だと検知されないためchangeを使用
  * @exports
  */
 init = () => {

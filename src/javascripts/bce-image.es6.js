@@ -5,7 +5,8 @@ var BCEImage, fileReader;
 fileReader = new FileReader();
 
 /**
- *
+ * BCE用に拡張したfabric.Imageクラス
+ * @exports
  */
 BCEImage = class extends fabric.Image {
   /**

@@ -3,7 +3,8 @@ import fabric from 'fabric';
 var BCEText;
 
 /**
- *
+ * BCE用に拡張したfabric.Textクラス
+ * @exports
  */
 BCEText = class extends fabric.Text {
   /**
