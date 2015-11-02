@@ -24,7 +24,7 @@ set$cache = () => {
 /**
  * データ取得完了時のコールバック
  */
-onApplyData = (event) => {
+onApplyData = () => {
   cover.setTemplate(bceModel.getTemplate());
 };
 
@@ -41,7 +41,7 @@ onInputValue = (event, value) => {
 /**
  * 画像生成ボタンクリック時のコールバック
  */
-onClickGenerateButton = (event) => {
+onClickGenerateButton = () => {
   cover.generate(onGenerate);
 };
 
