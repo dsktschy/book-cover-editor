@@ -69,10 +69,10 @@ BCECover = class extends fabric.Canvas {
    * constructor
    */
   constructor($canvas, ratio) {
-    var canvasWidth, defaultRatio;
+    var canvasHeight, defaultRatio;
     super($canvas[0], {perPixelTargetFind: true});
-    canvasWidth = $canvas.attr('width');
-    defaultRatio = Math.floor(canvasWidth / OUTPUT_WIDTH * 1000) / 1000;
+    canvasHeight = $canvas.attr('height');
+    defaultRatio = Math.floor(canvasHeight / OUTPUT_HEIGHT * 10000) / 10000;
     this.ratio = ratio || defaultRatio;
     for (let {className, optionMap} of LAYER_PARAM_MAPS) {
       this.add(new LAYER_CLASS_MAP[className](this.ratio, optionMap));
@@ -97,6 +97,17 @@ BCECover = class extends fabric.Canvas {
    */
   hasBand() {
     return this.item(LAYER_INDEX_MAP.band).get('visible');
+  }
+  /**
+   * 画像化する
+   */
+  generate(callback) {
+    var image;
+    image = new Image();
+    image.onload = callback.bind(null, image);
+    image.src = this.toDataURL({
+      multiplier: Math.floor(1 / this.ratio * 10000) / 10000,
+    });
   }
 };
 

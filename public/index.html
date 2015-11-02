@@ -17,7 +17,7 @@
         </h1>
         <nav id="bar-min">
           <div id="box-nav-min">
-            <div id="btn-to-edit-books"><button class="btn-generate-cover-img" name="button" type="submit">出版情報の登録へ進む</button></div>
+            <div id="btn-to-edit-books"><button class="btn-generate-cover-img" name="button">出版情報の登録へ進む</button></div>
           </div>
         </nav>
       </header>
@@ -142,7 +142,7 @@
                   </div>
                 </div>
                 <div id="box-cover-submit">
-                  <input class="btn-cover-back btn-generate-cover-img" name="back" type="submit" value="本文編集に戻る" />
+                  <input class="btn-cover-back btn-generate-cover-img" name="back" type="button" value="本文編集に戻る" />
                   <input class="btn-cover-submit btn-generate-cover-img" id="btn-generate-img" name="draft" type="button" value="下書き保存">
                 </div>
             </form>
@@ -156,6 +156,9 @@
         </div>
       </footer>
     </div>
-    <div class="shade"></div>
+    <div id="modal">
+      <div class="shade"></div>
+      <div class="content"></div>
+    </div>
   </body>
 </html>

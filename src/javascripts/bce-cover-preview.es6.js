@@ -5,7 +5,9 @@ const
   /** このモジュールに結びつく要素のセレクター */
   SELF_SELECTOR = '#box-edit-cover';
 
-var init, $cache, set$cache, cover, onApplyData, bceModel, onInputValue;
+var
+  init, $cache, set$cache, cover, onApplyData, bceModel, onInputValue,
+  onClickGenerateButton, onGenerate;
 
 /**
  * jqueryオブジェクトを保持
@@ -37,6 +39,20 @@ onInputValue = (event, value) => {
 };
 
 /**
+ * 画像生成ボタンクリック時のコールバック
+ */
+onClickGenerateButton = (event) => {
+  cover.generate(onGenerate);
+};
+
+/**
+ * 画像生成完了時のコールバック
+ */
+onGenerate = (image) => {
+  $cache.window.trigger('generate', image);
+};
+
+/**
  * module起動
  * @exports
  */
@@ -49,6 +65,7 @@ init = (modelMod) => {
   $cache.window
     .on('apply-data', onApplyData)
     .on('input-value.title.author.userImage.band.bandText.logo', onInputValue)
+    .on('click-generate-button', onClickGenerateButton)
     .trigger('select-template', apiURL);
 };
 

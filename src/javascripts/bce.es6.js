@@ -9,6 +9,8 @@ import bceUserImageEditor from './bce-user-image-editor';
 import bceBandEditor from './bce-band-editor';
 import bceBandTextEditor from './bce-band-text-editor';
 import bceLogoEditor from './bce-logo-editor';
+import bceGenerateButton from './bce-generate-button';
+import bceModalWindow from './bce-modal-window';
 
 var init, bceData, set$cache, $cache, onSelectTemplate;
 
@@ -47,6 +49,8 @@ init = () => {
   bceBandEditor.init();
   bceBandTextEditor.init();
   bceLogoEditor.init();
+  bceGenerateButton.init();
+  bceModalWindow.init();
 };
 
 export default {
