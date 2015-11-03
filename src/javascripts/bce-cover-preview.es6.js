@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import BCECover from './bce-cover';
+import BCECover from './classes/bce-cover';
 
 const
   /** このモジュールに結びつく要素のセレクター */
