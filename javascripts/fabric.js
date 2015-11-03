@@ -18958,7 +18958,9 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     _renderTextLineVertical: function( method, ctx, line, orgLeft, left, lineIndex ){
       var charHeight = ctx.measureText("あ").width,
           // 原点をずらす
-          top = this._getTopOffset() - ( this._getHeightOfLine() * ( 0.455 / this.lineHeight ) );
+          top = this._getTopOffset() - ( this._getHeightOfLine() * ( 0.455 / this.lineHeight ) ),
+          // 半角スペースの出現数
+          spaceCount = 0;
       // textAlignを反映
       left += ( this._getHeightOfLine() - charHeight ) / 2;
       // 一字ずつ
@@ -18983,7 +18985,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
           // 左右反転（明朝対応）
           ctx.scale( 1, -1 );
           // 少し右にずらす
-          this._renderChars( method, ctx, c, 0, charHeight/22 );
+          this._renderChars( method, ctx, c, -(charHeight / 2 * spaceCount) + charHeight/25, charHeight/25 );
           ctx.scale( 1, -1 );
           ctx.rotate( -90 * Math.PI/180 );
           ctx.translate( this._getHeightOfLine()*(lineIndex + 0.5), -(charHeight * i) );
@@ -18994,6 +18996,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
         // 半角スペース
         } else if( c === ' ' || c === ' ' ){
           top -= charHeight/2; // 最後の+=で半角分の空きができる
+          spaceCount++;
         // 上記以外
         } else {
           // 描画
