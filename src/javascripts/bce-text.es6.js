@@ -1,5 +1,7 @@
 import fabric from 'fabric';
 
+const BG_COLOR_HEIGHT_MAX = 1.25;
+
 var BCEText;
 
 /**
@@ -13,7 +15,10 @@ BCEText = class extends fabric.Text {
   constructor(ratio) {
     super('');
     this.ratio = ratio;
-    this.update({selectable: false});
+    this.update({
+      selectable: false,
+      textBackgroundColorHeightMax: BG_COLOR_HEIGHT_MAX,
+    });
   }
   /**
    * set + setCoords + renderAll

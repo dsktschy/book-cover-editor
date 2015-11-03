@@ -18608,6 +18608,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     textBaseline: 'middle',
     // 文字背景色の行端のはみ出し
     textBackgroundColorPadding: true,
+    // 文字背景色の最大高
+    textBackgroundColorHeightMax: null,
     // 右上にずらす文字
     shift: ['ぁ','ぃ','ぅ','ぇ','ぉ','っ','ゃ','ゅ','ょ','ゎ','ァ','ィ','ゥ','ェ','ォ','ッ','ャ','ュ','ョ','ヮ','ヵ','ヶ'],
     // 回転が必要な文字
@@ -18990,7 +18992,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
         } else if( c in this.conversive ){
           ctx.fillText(this.conversive[ c ], left, top);
         // 半角スペース
-        } else if( c === ' ' ){
+        } else if( c === ' ' || c === ' ' ){
           top -= charHeight/2; // 最後の+=で半角分の空きができる
         // 上記以外
         } else {
@@ -19133,35 +19135,40 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
 
       var lineHeights = 0,
           charHeight = ctx.measureText("あ").width,
-          heightOfLine = this._getHeightOfLine(),
+          lineHeight = this._getHeightOfLine(),
           // 行間にわずかな隙間が出来るのを防ぐ
           e = 1.02,
+          max = this.textBackgroundColorHeightMax,
+          textBGColorHeight = this.fontSize * (max && this.lineHeight > max ? max : this.lineHeight),
+          heightOffset = (lineHeight - textBGColorHeight) / 2,
           // 行端のはみ出し幅
           padding = this.textBackgroundColorPadding
-              ? ( heightOfLine - charHeight ) / 2
-              : 0;
+            ? ( textBGColorHeight - charHeight ) * 1.2
+            : 0;
 
       ctx.save();
       ctx.fillStyle = this.textBackgroundColor;
 
       for (var i = 0, len = textLines.length; i < len; i++) {
 
-        lineHeights += heightOfLine;
+        lineHeights += lineHeight;
 
         if (textLines[i] !== '') {
           // 横書き
           if( this.writingMode === 'lr' ){
             var lineWidth = this._getLineWidth(ctx, textLines[i]),
                 left = this._getLeftOffset() + this._getLineLeftOffset(lineWidth) - padding,
-                top = this._getTopOffset() + (i * this.fontSize * this.lineHeight),
+                top = this._getTopOffset() + (i * lineHeight) + heightOffset,
                 w = this._getLineWidth(ctx, textLines[i]) + ( padding * 2 ),
-                h = this.fontSize * this.lineHeight * e;
+                h = textBGColorHeight * e;
           // 縦書き
           } else {
-            var left = this._getLeftOffset() - lineHeights,
+            var left = this._getLeftOffset() - lineHeights + heightOffset,
                 top = this._getTopOffset() - padding,
-                w = heightOfLine * e,
-                h = charHeight * textLines[i].length + ( padding * 2 );
+                spaceCount = (textLines[i].match(/ | /g) || []).length,
+                spaceHeight = charHeight / 2 * spaceCount,
+                w = textBGColorHeight * e,
+                h = charHeight * textLines[i].length + ( padding * 2 ) - spaceHeight;
           }
           // 描画
           ctx.fillRect( left, top, w, h );
