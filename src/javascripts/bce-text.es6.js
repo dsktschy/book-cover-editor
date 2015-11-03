@@ -70,6 +70,8 @@ BCEText = class extends fabric.Text {
       writingMode,
       originX,
       textAlign,
+      // 再現公開用。本番ではweightを限定したwebfontを使用
+      fontWeight: t.fontWeight,
     });
   }
   /**
