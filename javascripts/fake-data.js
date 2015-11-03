@@ -34,14 +34,14 @@ FAKE_DATA = [
       "height": 2048,
       "positionX": 0,
       "positionY": 0,
-      "src": "../images/covers/001/original/antique_2B_frame.png",
+      "src": "images/covers/001/original/antique_2B_frame.png",
       "width": 1536
     },
     "logo": {
       "height": 41,
       "positionX": 768,
       "positionY": 1956,
-      "src": "../images/covers/logos/logo_hr_b.gif",
+      "src": "images/covers/logos/logo_hr_b.gif",
       "type": "logo_hr_b",
       "width": 200
     },
@@ -50,7 +50,7 @@ FAKE_DATA = [
       "height": 1337,
       "positionX": 100,
       "positionY": 552,
-      "src": "../images/covers/001/original/antique_2B_temp.jpg",
+      "src": "images/covers/001/original/antique_2B_temp.jpg",
       "width": 1336
     },
     "title": {
@@ -102,14 +102,14 @@ FAKE_DATA = [
       "height": 2048,
       "positionX": 0,
       "positionY": 0,
-      "src": "../images/covers/002/original/simple_5A_frame.png",
+      "src": "images/covers/002/original/simple_5A_frame.png",
       "width": 1536
     },
     "logo": {
       "height": 97,
       "positionX": 1366,
       "positionY": 1881,
-      "src": "../images/covers/logos/logo_vr_w.gif",
+      "src": "images/covers/logos/logo_vr_w.gif",
       "type": "logo_vr_w",
       "width": 100
     },
@@ -118,7 +118,7 @@ FAKE_DATA = [
       "height": 2048,
       "positionX": 0,
       "positionY": 0,
-      "src": "../images/covers/002/original/simple_5A_temp.jpg",
+      "src": "images/covers/002/original/simple_5A_temp.jpg",
       "width": 948
     },
     "title": {
