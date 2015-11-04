@@ -31,7 +31,7 @@ onChangeInput = () => {
 init = () => {
   set$cache();
   $cache.input.on('change', onChangeInput);
-  $cache.window.on('apply-data', onChangeInput);
+  $cache.window.on('get-data', onChangeInput);
 };
 
 export default {

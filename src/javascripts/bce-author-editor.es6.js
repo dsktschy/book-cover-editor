@@ -39,7 +39,7 @@ onClickInput = () => {
 init = () => {
   set$cache();
   $cache.input.on('click', onClickInput);
-  $cache.window.on('apply-data', onClickInput);
+  $cache.window.on('get-data', onClickInput);
 };
 
 export default {

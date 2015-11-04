@@ -48,7 +48,7 @@ init = () => {
   set$cache();
   $cache.input.on('click', onClickInput);
   $cache.inputHidden.change(onChangeInputHidden);
-  $cache.window.on('apply-data', onChangeInputHidden);
+  $cache.window.on('get-data', onChangeInputHidden);
 };
 
 export default {

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 var
-  init, bceData, applyData, onSuccessToGetParsedData, onErrorToGetParsedData,
+  init, bceData, getData, onSuccessToGetParsedData, onErrorToGetParsedData,
   set$cache, $cache, template, getTemplate;
 
 /**
@@ -19,7 +19,7 @@ set$cache = () => {
 onSuccessToGetParsedData = (data) => {
   // 本来はここで受け取ったJSONが不正でないかチェック
   template = data;
-  $cache.window.trigger('apply-data');
+  $cache.window.trigger('get-data');
 };
 
 /**
@@ -33,7 +33,7 @@ onErrorToGetParsedData = (e) => {
  * データ取得開始
  * @exports
  */
-applyData = (apiURL) => {
+getData = (apiURL) => {
   bceData.getParsedData(
     apiURL,
     onSuccessToGetParsedData,
@@ -59,6 +59,6 @@ init = (dataMod) => {
 
 export default {
   init,
-  applyData,
+  getData,
   getTemplate,
 };

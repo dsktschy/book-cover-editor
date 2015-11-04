@@ -6,7 +6,7 @@ const
   SELF_SELECTOR = '#box-edit-cover';
 
 var
-  init, $cache, set$cache, cover, onApplyData, bceModel, onInputValue,
+  init, $cache, set$cache, cover, onGetData, bceModel, onInputValue,
   onClickGenerateButton, onGenerate;
 
 /**
@@ -24,7 +24,7 @@ set$cache = () => {
 /**
  * データ取得完了時のコールバック
  */
-onApplyData = () => {
+onGetData = () => {
   cover.setTemplate(bceModel.getTemplate());
 };
 
@@ -63,7 +63,7 @@ init = (modelMod) => {
   cover = new BCECover($cache.canvas);
   apiURL = $cache.boxCoverImg.data('cover-json-url');
   $cache.window
-    .on('apply-data', onApplyData)
+    .on('get-data', onGetData)
     .on('input-value.title.author.userImage.band.bandText.logo', onInputValue)
     .on('click-generate-button', onClickGenerateButton)
     .trigger('select-template', apiURL);

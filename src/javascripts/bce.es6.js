@@ -28,7 +28,7 @@ set$cache = () => {
  * 表紙テンプレートが選択された時のコールバック
  */
 onSelectTemplate = (event, apiURL) => {
-  bceModel.applyData(apiURL);
+  bceModel.getData(apiURL);
 };
 
 /**
