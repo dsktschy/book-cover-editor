@@ -7,6 +7,7 @@ var BCERect;
  * @exports
  */
 BCERect = class extends fabric.Rect {
+
   /**
    * constructor
    * @param {number} ratio
@@ -19,6 +20,7 @@ BCERect = class extends fabric.Rect {
     this.outputHeight = height;
     this.update({selectable: false});
   }
+
   /**
    * set + setCoords + renderAll
    * @param {Object} map
@@ -31,6 +33,7 @@ BCERect = class extends fabric.Rect {
       this.canvas.renderAll();
     }
   }
+
   /**
    * レイヤーにテンプレート情報をセットする
    * @param {Object} t 表紙テンプレートオブジェクトの該当レイヤー属性
@@ -44,6 +47,7 @@ BCERect = class extends fabric.Rect {
       fill: t.color,
     });
   }
+
   /**
    * 入力された情報をレイヤーに反映する
    * @param {boolean} value

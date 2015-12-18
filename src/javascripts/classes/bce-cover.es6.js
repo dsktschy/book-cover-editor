@@ -65,6 +65,7 @@ var BCECover;
  * @exports
  */
 BCECover = class extends fabric.Canvas {
+
   /**
    * constructor
    * @param {Object} $canvas
@@ -80,6 +81,7 @@ BCECover = class extends fabric.Canvas {
       this.add(new LAYER_CLASS_MAP[className](this.ratio, optionMap));
     }
   }
+
   /**
    * 全レイヤーにテンプレート情報をセットする
    * @param {Object} template
@@ -89,6 +91,7 @@ BCECover = class extends fabric.Canvas {
       this.item(i).setTemplate(template[LAYER_PARAM_MAPS[i].name]);
     }
   }
+
   /**
    * 指定レイヤーに値を反映する
    * @param {string} name
@@ -97,12 +100,14 @@ BCECover = class extends fabric.Canvas {
   setToLayer(name, value) {
     this.item(LAYER_INDEX_MAP[name]).setValue(value);
   }
+
   /**
    * 帯を表示しているかどうか
    */
   hasBand() {
     return this.item(LAYER_INDEX_MAP.band).get('visible');
   }
+
   /**
    * 画像化する
    * @param {Function} callback

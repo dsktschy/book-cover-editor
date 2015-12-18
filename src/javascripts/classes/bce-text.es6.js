@@ -9,6 +9,7 @@ var BCEText;
  * @exports
  */
 BCEText = class extends fabric.Text {
+
   /**
    * constructor
    * @param {number} ratio
@@ -21,6 +22,7 @@ BCEText = class extends fabric.Text {
       textBackgroundColorHeightMax: BG_COLOR_HEIGHT_MAX,
     });
   }
+
   /**
    * set + setCoords + renderAll
    * @param {Object} map
@@ -37,6 +39,7 @@ BCEText = class extends fabric.Text {
       this.canvas.renderAll();
     }
   }
+
   /**
    * レイヤーにテンプレート情報をセットする
    * @param {Object} t 表紙テンプレートオブジェクトの該当レイヤー属性
@@ -76,6 +79,7 @@ BCEText = class extends fabric.Text {
       fontWeight: t.fontWeight,
     });
   }
+
   /**
    * 入力された情報をレイヤーに反映する
    * @param {*} value

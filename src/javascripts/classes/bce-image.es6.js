@@ -9,6 +9,7 @@ fileReader = new FileReader();
  * @exports
  */
 BCEImage = class extends fabric.Image {
+
   /**
    * constructor
    * @param {number} ratio
@@ -32,6 +33,7 @@ BCEImage = class extends fabric.Image {
     }
     this.update(propMap);
   }
+
   /**
    * setElement + set + setCoords + renderAll
    * @param {Object} map
@@ -48,6 +50,7 @@ BCEImage = class extends fabric.Image {
       this.canvas.renderAll();
     }
   }
+
   /**
    * レイヤーにテンプレート情報をセットする
    * @param {Object} t 表紙テンプレートオブジェクトの該当レイヤー属性
@@ -68,6 +71,7 @@ BCEImage = class extends fabric.Image {
     propMap.image.onload = this.update.bind(this, propMap);
     propMap.image.src = t.src;
   }
+
   /**
    * 入力された情報をレイヤーに反映する
    * @param {*} value
