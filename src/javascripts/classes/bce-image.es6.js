@@ -11,6 +11,8 @@ fileReader = new FileReader();
 BCEImage = class extends fabric.Image {
   /**
    * constructor
+   * @param {number} ratio
+   * @param {Object}
    */
   constructor(ratio, {isCentering = false, transformable = false}) {
     var propMap;
@@ -32,6 +34,7 @@ BCEImage = class extends fabric.Image {
   }
   /**
    * setElement + set + setCoords + renderAll
+   * @param {Object} map
    */
   update(map) {
     if (map.image) {
@@ -67,6 +70,7 @@ BCEImage = class extends fabric.Image {
   }
   /**
    * 入力された情報をレイヤーに反映する
+   * @param {*} value
    */
   setValue(value) {
     var image;

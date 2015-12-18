@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#box-cover-list';
 
 var init, $cache, set$cache, onClickCoverThumb;
@@ -18,7 +18,8 @@ set$cache = () => {
 };
 
 /**
- * 表紙サムネイルクリック時のハンドラー
+ * 表紙サムネイルクリック時のハンドラ
+ * @param {Object} event
  */
 onClickCoverThumb = (event) => {
   var apiURL;

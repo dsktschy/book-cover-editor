@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#band-text-editor';
 
 var init, $cache, set$cache, onClickInput;
@@ -19,7 +19,7 @@ set$cache = () => {
 };
 
 /**
- * 追加ボタン押下時のハンドラー
+ * 追加ボタン押下時のハンドラ
  */
 onClickInput = () => {
   $cache.window.trigger('input-value.bandText', $cache.textarea.val());

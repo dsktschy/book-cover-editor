@@ -26,6 +26,8 @@ set$cache = () => {
 
 /**
  * 表紙テンプレートが選択された時のコールバック
+ * @param {Object} event
+ * @param {string} apiURL
  */
 onSelectTemplate = (event, apiURL) => {
   bceModel.getData(apiURL);

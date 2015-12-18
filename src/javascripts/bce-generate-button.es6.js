@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#btn-to-edit-books, #box-cover-submit';
 
 var init, $cache, set$cache, onClickInput;
@@ -18,7 +18,7 @@ set$cache = () => {
 };
 
 /**
- * ボタン押下時のハンドラー
+ * ボタン押下時のハンドラ
  */
 onClickInput = () => {
   $cache.window.trigger('click-generate-button');

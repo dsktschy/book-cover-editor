@@ -13,6 +13,9 @@ var init, getParsedData;
 /**
  * データ取得とパースを模倣する
  * @exports
+ * @param {string} url
+ * @param {Function} onSuccess
+ * @param {Function} onError
  */
 getParsedData = (url, onSuccess, onError) => {
   var splitedURL, num;

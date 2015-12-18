@@ -9,6 +9,8 @@ var BCERect;
 BCERect = class extends fabric.Rect {
   /**
    * constructor
+   * @param {number} ratio
+   * @param {Object}
    */
   constructor(ratio, {outputSize: {width, height}}) {
     super();
@@ -19,6 +21,7 @@ BCERect = class extends fabric.Rect {
   }
   /**
    * set + setCoords + renderAll
+   * @param {Object} map
    */
   update(map) {
     this
@@ -43,6 +46,7 @@ BCERect = class extends fabric.Rect {
   }
   /**
    * 入力された情報をレイヤーに反映する
+   * @param {boolean} value
    */
   setValue(value) {
     this.update({visible: value});

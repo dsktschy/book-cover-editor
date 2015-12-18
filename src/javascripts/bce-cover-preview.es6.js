@@ -2,7 +2,7 @@ import $ from 'jquery';
 import BCECover from './classes/bce-cover';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#box-edit-cover';
 
 var
@@ -30,6 +30,8 @@ onGetData = () => {
 
 /**
  * ユーザー入力へのコールバック
+ * @param {Object} event
+ * @param {*} value
  */
 onInputValue = (event, value) => {
   cover.setToLayer(event.namespace, value);
@@ -47,6 +49,7 @@ onClickGenerateButton = () => {
 
 /**
  * 画像生成完了時のコールバック
+ * @param {Object} image
  */
 onGenerate = (image) => {
   $cache.window.trigger('generate', image);
@@ -55,6 +58,7 @@ onGenerate = (image) => {
 /**
  * module起動
  * @exports
+ * @param {Object} modelMod
  */
 init = (modelMod) => {
   var apiURL;

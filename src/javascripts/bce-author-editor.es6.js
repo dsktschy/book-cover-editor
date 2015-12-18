@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#author-editor';
 
 var init, $cache, set$cache, onClickInput;
@@ -20,7 +20,7 @@ set$cache = () => {
 };
 
 /**
- * 追加ボタン押下時のハンドラー
+ * 追加ボタン押下時のハンドラ
  */
 onClickInput = () => {
   var lastName, firstName, value;

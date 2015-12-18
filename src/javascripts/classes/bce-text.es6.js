@@ -11,6 +11,7 @@ var BCEText;
 BCEText = class extends fabric.Text {
   /**
    * constructor
+   * @param {number} ratio
    */
   constructor(ratio) {
     super('');
@@ -22,6 +23,7 @@ BCEText = class extends fabric.Text {
   }
   /**
    * set + setCoords + renderAll
+   * @param {Object} map
    */
   update(map) {
     if (map.text) {
@@ -76,6 +78,7 @@ BCEText = class extends fabric.Text {
   }
   /**
    * 入力された情報をレイヤーに反映する
+   * @param {*} value
    */
   setValue(value) {
     var key;

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#logo-editor';
 
 var init, $cache, set$cache, onChangeInput;
@@ -18,7 +18,7 @@ set$cache = () => {
 };
 
 /**
- * トグル切り替え時のハンドラー
+ * トグル切り替え時のハンドラ
  */
 onChangeInput = () => {
   $cache.window.trigger('input-value.logo', $cache.input.prop('checked'));

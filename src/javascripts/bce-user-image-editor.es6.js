@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#user-image-editor';
 
 var init, $cache, set$cache, onClickInput, onChangeInputHidden;
@@ -19,14 +19,14 @@ set$cache = () => {
 };
 
 /**
- * 変更ボタン押下時のハンドラー
+ * 変更ボタン押下時のハンドラ
  */
 onClickInput = () => {
   $cache.inputHidden.trigger('click');
 };
 
 /**
- * 画像選択完了時のハンドラー
+ * 画像選択完了時のハンドラ
  */
 onChangeInputHidden = () => {
   if (!$cache.inputHidden.prop('files').length) {

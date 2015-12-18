@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 const
-  /** このモジュールに結びつく要素のセレクター */
+  /** このモジュールに結びつく要素のセレクタ */
   SELF_SELECTOR = '#modal',
   /** 親要素のheightに対するcontent要素のheightの割合(小数) */
   HEIGHT_RATIO = 0.8,
@@ -25,7 +25,7 @@ set$cache = () => {
 };
 
 /**
- * クリック時のハンドラー
+ * クリック時のハンドラ
  */
 onClick = () => {
   $cache.window.off('resize');
@@ -37,6 +37,8 @@ onClick = () => {
 
 /**
  * 画像生成完了時のコールバック
+ * @param {Object} event
+ * @param {Object} image
  */
 onGenerate = (event, image) => {
   $cache.shade.css('display', 'block');
@@ -50,7 +52,7 @@ onGenerate = (event, image) => {
 };
 
 /**
- * ウインドウリサイズ時のハンドラー
+ * ウインドウリサイズ時のハンドラ
  */
 onResize = () => {
   clearTimeout(timeoutID);

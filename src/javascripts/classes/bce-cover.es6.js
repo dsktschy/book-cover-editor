@@ -67,6 +67,8 @@ var BCECover;
 BCECover = class extends fabric.Canvas {
   /**
    * constructor
+   * @param {Object} $canvas
+   * @param {number} ratio
    */
   constructor($canvas, ratio) {
     var canvasHeight, defaultRatio;
@@ -80,6 +82,7 @@ BCECover = class extends fabric.Canvas {
   }
   /**
    * 全レイヤーにテンプレート情報をセットする
+   * @param {Object} template
    */
   setTemplate(template) {
     for (let i = 0; i < LAYER_PARAM_MAPS.length; i++) {
@@ -88,6 +91,8 @@ BCECover = class extends fabric.Canvas {
   }
   /**
    * 指定レイヤーに値を反映する
+   * @param {string} name
+   * @param {*} value
    */
   setToLayer(name, value) {
     this.item(LAYER_INDEX_MAP[name]).setValue(value);
@@ -100,6 +105,7 @@ BCECover = class extends fabric.Canvas {
   }
   /**
    * 画像化する
+   * @param {Function} callback
    */
   generate(callback) {
     var image;
