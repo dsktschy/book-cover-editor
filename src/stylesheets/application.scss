@@ -10512,3 +10512,12 @@ canvas {
     max-height: 100%;
   }
 }
+
+/* for book cover editor */
+#fake-templates {
+  position: absolute;
+  top: 0px;
+  left: 156px;
+  width: 371px !important;
+  cursor: default !important;
+}
